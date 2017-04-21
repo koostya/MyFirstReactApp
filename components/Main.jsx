@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Name from './Name.jsx';
 
 const initState = {
 	name: 'React'
 }
-class App extends React.Component {
+class Main extends React.Component {
 	constructor(props) {
 		super(props); 
 
@@ -26,12 +26,5 @@ class App extends React.Component {
 		);
 	}
 }
-class Name extends React.Component {
-	render() {
-		return (
-			<h2>Hello, {this.props.name}!</h2>
-		);
-	}
-}
 
-ReactDOM.render(<App name = 'Kostya'/>, document.getElementById('root'));
+export default Main;

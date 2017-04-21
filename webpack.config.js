@@ -1,30 +1,32 @@
 var webpack = require('webpack');
 var path = require('path');
 
-
-var BUILD_DIR = path.resolve(__dirname, 'src/client-build');
-var APP_DIR = path.resolve(__dirname, 'src/client');
-
-var config = [
-  {
-    name: 'reactComponents',
-    entry: {
-      testBuild: APP_DIR + '/index.js'
-    },
-    output: {
-      path: BUILD_DIR,
-      filename: '[name].bundle.js'
-    },
-    module : {
-      loaders : [
-        {
-          test : /\.jsx?/,
-          include : APP_DIR,
-          loader : 'babel-loader'
-        }
+var config = {
+   entry: './main.js',
+    
+   output: {
+      path:__dirname,
+      filename: 'index.js',
+   },
+    
+   devServer: {
+      inline: true,
+      port: 8080
+   },
+    
+   module: {
+      loaders: [
+         {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+                
+            query: {
+               presets: ['es2015', 'react']
+            }
+         }
       ]
-    }
-  }
-];
+   }
+}
 
 module.exports = config;
