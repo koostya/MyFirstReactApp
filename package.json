@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib --watch",
-    "webpack-dev": "webpack -d --watch"
+    "webpack-dev": "webpack -d --watch",
+    "start": "node app"
   },
   "author": "Kostya",
   "license": "ISC",
@@ -19,6 +20,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "babel-loader": "^6.4.1",
+    "express": "^4.15.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "webpack": "^2.3.3",
