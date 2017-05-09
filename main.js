@@ -5,7 +5,7 @@ import Main from './app/components/Main.jsx';
 
 const initState = {
     textBeforeAdd: 'Your text for blog',
-    articles: []
+    articles: ['e', 'ee']
 };
 
 

@@ -10,6 +10,8 @@ class Main extends React.Component {
 
         this.addArticle = this.addArticle.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.deleteArticle = this.deleteArticle.bind(this);
+        this.console = this.console.bind(this);
 	}
     handleChange(e){
         var text = e.target.value;
@@ -19,19 +21,22 @@ class Main extends React.Component {
         this.setState({articles: this.state.articles});
         ReactDOM.findDOMNode(this.refs.text).value = '';
     }
+	deleteArticle(e){
+		var indexOfItem = e.target.value;
+        this.state.articles.splice(indexOfItem, 1);
+        this.setState({articles: this.state.articles});
+	}
+    console(){
+        console.log('Hi, it works!');
+    }
 	render() {
 		    return (
                 <div>
-                    <h1>My Blog</h1>
+                    <h1 onClick = {this.console}>My Blog</h1>
                     <div>
-                        {
-                            this.state.articles.map(function(text, i){
-                                return <Article text = {text} key = {i} />
-                            })
-                        }
+                        <Article delete = {this.deleteArticle} data = {this.state}/>
                     </div>
-                    <div>{this.state.textBeforeAdd}</div>
-                    <input onChange = {this.handleChange} ref = 'text'/>
+                    <input onChange = {this.handleChange} ref = 'text' placeholder = {this.state.textBeforeAdd}/>
                     <button onClick = {this.addArticle}>Add</button>
                 </div>  
 		    );

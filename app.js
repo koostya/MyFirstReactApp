@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
-app.get('/index.html', function (req, res) {
+app.get('index', function (req, res) {
   res.send(req.body)
 })
 
