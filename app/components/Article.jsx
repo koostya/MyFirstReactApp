@@ -9,6 +9,7 @@ class Article extends React.Component {
 					<div key = {i}>
 						<div>{text}</div>
 						<button onClick = {this.props.delete} value = {i}>Delete</button>
+						<button onClick = {this.props.update} value = {i}>Update</button>
 					</div>
 				)
 			}
